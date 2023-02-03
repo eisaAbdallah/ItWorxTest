@@ -9,13 +9,13 @@ import org.springframework.data.repository.Repository;
 
 import java.util.List;
 
-public interface IntentRepository extends Repository<IntentMessage,Integer> {
+public interface IntentRepository   {
 
 List<Message> findByMessage(String messageId);
     List<IntentMessage> findIntentByMessageId(String messageId);
     List<Intent> findIntentByIntentId(String intentId);
     List<Reply> findReplyByReplyId(String replyId);
 
-    @Query(value = "SELECT   MAX (u.confidence)  FROM IntentMessage u")
-          Integer getMaxResult();
+    Integer getMaxResult();
+
 }

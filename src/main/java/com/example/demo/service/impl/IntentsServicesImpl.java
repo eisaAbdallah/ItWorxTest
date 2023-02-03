@@ -16,6 +16,7 @@ public class IntentsServicesImpl implements IntentService {
 
      @Autowired
     IntentRepository intentRepository;
+
     @Override
     public List<Message> findByMessage(String messageId) {
         return intentRepository.findByMessage(messageId);

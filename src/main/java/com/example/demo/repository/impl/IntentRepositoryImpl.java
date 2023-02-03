@@ -5,8 +5,9 @@ import com.example.demo.model.IntentMessage;
 import com.example.demo.model.Message;
 import com.example.demo.model.Reply;
 import com.example.demo.repository.IntentRepository;
-import org.hibernate.query.Query;
+import com.example.demo.repository.MaxResultConfidence;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -18,7 +19,8 @@ import java.util.List;
 public class IntentRepositoryImpl implements IntentRepository {
     @Autowired
     EntityManager entityManager;
-
+    @Autowired
+    MaxResultConfidence maxResultConfidence;
     @Override
     @Transactional
     public List<Message> findByMessage(String messageId) {
@@ -54,6 +56,12 @@ public class IntentRepositoryImpl implements IntentRepository {
         jpql.setParameter("messageId",Integer.getInteger(replyId));
         List<Reply> result = jpql.getResultList();
         return result;
+    }
+
+    @Override
+    @Transactional
+    public Integer getMaxResult() {
+        return maxResultConfidence.getMaxResult();
     }
 
 
