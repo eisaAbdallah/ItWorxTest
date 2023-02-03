@@ -1,13 +1,13 @@
 package com.example.demo.model;
 
 public class UserMessage {
-  private  String Message;
+  private  String message;
 
     public String getMessage() {
-        return Message;
+        return message;
     }
 
     public void setMessage(String message) {
-        Message = message;
+        message = message;
     }
 }
