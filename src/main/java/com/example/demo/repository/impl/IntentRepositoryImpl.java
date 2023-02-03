@@ -8,12 +8,17 @@ import com.example.demo.repository.IntentRepository;
 import com.example.demo.repository.MaxResultConfidence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 @Repository
 public class IntentRepositoryImpl implements IntentRepository {
@@ -21,6 +26,10 @@ public class IntentRepositoryImpl implements IntentRepository {
     EntityManager entityManager;
     @Autowired
     MaxResultConfidence maxResultConfidence;
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+
+    List<IntentMessage> intentMessages;
     @Override
     @Transactional
     public List<Message> findByMessage(String messageId) {
@@ -32,13 +41,20 @@ public class IntentRepositoryImpl implements IntentRepository {
     }
 
     @Override
-    @Transactional
-    public List<IntentMessage> findIntentByMessageId(int messageId) {
-        TypedQuery<IntentMessage> jpql=entityManager.createQuery("from IntentMessage where messageId =: messageid",IntentMessage.class);
-        jpql.setParameter("messageid",messageId);
-        List<IntentMessage> result = jpql.getResultList();
-        return result;
+    public List<IntentMessage> findIntentByMessageId(Integer messageId) {
+        intentMessages=  this.jdbcTemplate.query("select * from INTENT_MESSAGE where MESSAGE_ID_INTENT=?",new RowMapper<IntentMessage>(){
+            @Override
+            public IntentMessage mapRow(ResultSet rs, int rownumber) throws SQLException {
+                IntentMessage e=new IntentMessage();
+                e.setIntentId(rs.getInt("intent_id"));
+
+                return e;
+            }
+        },messageId);
+        return intentMessages;
     }
+
+    
 
     @Override
     @Transactional

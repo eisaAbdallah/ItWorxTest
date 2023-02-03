@@ -19,14 +19,14 @@ INSERT INTO reply (reply_id, reply_message) VALUES (8, 'Please follow these inst
 
 
 
-INSERT INTO  intent_message (intent_message_id, message_id,intent_id,confidence) VALUES (1, 1,1,0.81);
-INSERT INTO intent_message (intent_message_id, message_id,intent_id,confidence) VALUES (2, 2,2,0.18);
-INSERT INTO intent_message (intent_message_id, message_id,intent_id,confidence) VALUES (3, 3,3,0.01);
-INSERT INTO  intent_message (intent_message_id, message_id,intent_id,confidence) VALUES (4, 4,4,0.18);
-INSERT INTO intent_message (intent_message_id, message_id,intent_id,confidence) VALUES (5, 5,5,0.01);
-INSERT INTO intent_message (intent_message_id, message_id,intent_id,confidence) VALUES (6, 6,6,0.18);
-INSERT INTO  intent_message (intent_message_id, message_id,intent_id,confidence) VALUES (7, 7,7,0.01);
-INSERT INTO intent_message (intent_message_id, message_id,intent_id,confidence) VALUES (8, 8,8,0.18);
+INSERT INTO  intent_message (id, message_id_intent,intent_id,confidence) VALUES (1, 1,1,0.81);
+INSERT INTO intent_message (id, message_id_intent,intent_id,confidence) VALUES (2, 2,2,0.18);
+INSERT INTO intent_message (id, message_id_intent,intent_id,confidence) VALUES (3, 3,3,0.01);
+INSERT INTO  intent_message (id, message_id_intent,intent_id,confidence) VALUES (4, 4,4,0.18);
+INSERT INTO intent_message (id, message_id_intent,intent_id,confidence) VALUES (5, 5,5,0.01);
+INSERT INTO intent_message (id, message_id_intent,intent_id,confidence) VALUES (6, 6,6,0.18);
+INSERT INTO  intent_message (id, message_id_intent,intent_id,confidence) VALUES (7, 7,7,0.01);
+INSERT INTO intent_message (id, message_id_intent,intent_id,confidence) VALUES (8, 8,8,0.18);
 
 
 

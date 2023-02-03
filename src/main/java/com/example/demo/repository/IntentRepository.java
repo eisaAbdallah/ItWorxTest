@@ -12,7 +12,7 @@ import java.util.List;
 public interface IntentRepository   {
 
 List<Message> findByMessage(String messageId);
-    List<IntentMessage> findIntentByMessageId(int messageId);
+    List<IntentMessage> findIntentByMessageId(Integer messageId);
     List<Intent> findIntentByIntentId(int intentId);
     List<Reply> findReplyByReplyId(int replyId);
 
