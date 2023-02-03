@@ -38,7 +38,7 @@ public class IntentsServicesImpl implements IntentService {
     }
 
     @Override
-    public Integer getMaxResult() {
+    public float getMaxResult() {
         return intentRepository.getMaxResult();
     }
 }

@@ -44,7 +44,7 @@ public class Controller {
         }
 
         for(IntentsModel result :intentCollection){
-            Integer maxResult=intentService.getMaxResult();
+            float maxResult=intentService.getMaxResult();
 
            if(result.getConfidence()==maxResult){
 

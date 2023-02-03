@@ -13,5 +13,5 @@ public interface IntentService {
     List<Intent> findIntentByIntentId(int intentId);
     List<Reply> findReplyByReplyId(int replyId);
 
-Integer getMaxResult();
+    float getMaxResult();
 }

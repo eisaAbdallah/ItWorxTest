@@ -16,6 +16,6 @@ List<Message> findByMessage(String messageId);
     List<Intent> findIntentByIntentId(int intentId);
     List<Reply> findReplyByReplyId(int replyId);
 
-    Integer getMaxResult();
+    float getMaxResult();
 
 }

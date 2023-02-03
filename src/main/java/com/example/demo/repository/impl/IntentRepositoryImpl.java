@@ -76,7 +76,7 @@ public class IntentRepositoryImpl implements IntentRepository {
 
     @Override
     @Transactional
-    public Integer getMaxResult() {
+    public float getMaxResult() {
         return maxResultConfidence.getMaxResult();
     }
 

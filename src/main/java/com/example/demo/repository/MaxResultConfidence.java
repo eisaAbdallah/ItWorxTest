@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
 public interface MaxResultConfidence extends Repository<IntentMessage,Integer> {
-    @Query(value = "SELECT   MAX (u.confidence)  FROM IntentMessage u")
-    Integer getMaxResult();
+    @Query(value = "SELECT   MAX(confidence)  FROM IntentMessage")
+    float getMaxResult();
 }
