@@ -25,8 +25,8 @@ public class IntentRepositoryImpl implements IntentRepository {
     @Transactional
     public List<Message> findByMessage(String messageId) {
 
-        TypedQuery<Message> jpql=entityManager.createNamedQuery("from Message where messageId= :messageId",Message.class);
-        jpql.setParameter("messageId",Integer.getInteger(messageId));
+        TypedQuery<Message> jpql=entityManager.createQuery("from Message where message =: messageid",Message.class);
+        jpql.setParameter("messageid",messageId);
         List<Message> result = jpql.getResultList();
         return result;
     }
@@ -34,8 +34,8 @@ public class IntentRepositoryImpl implements IntentRepository {
     @Override
     @Transactional
     public List<IntentMessage> findIntentByMessageId(String messageId) {
-        TypedQuery<IntentMessage> jpql=entityManager.createNamedQuery("from IntentMessage where messageId= :messageId",IntentMessage.class);
-        jpql.setParameter("messageId",Integer.getInteger(messageId));
+        TypedQuery<IntentMessage> jpql=entityManager.createQuery("from IntentMessage where messageId =: messageid",IntentMessage.class);
+        jpql.setParameter("messageid",Integer.getInteger(messageId));
         List<IntentMessage> result = jpql.getResultList();
         return result;
     }
@@ -43,8 +43,8 @@ public class IntentRepositoryImpl implements IntentRepository {
     @Override
     @Transactional
     public List<Intent> findIntentByIntentId(String intentId) {
-        TypedQuery<Intent> jpql=entityManager.createNamedQuery("from Intent where messageId= :messageId",Intent.class);
-        jpql.setParameter("messageId",Integer.getInteger(intentId));
+        TypedQuery<Intent> jpql=entityManager.createQuery("from Intent where intentId =: intentid",Intent.class);
+        jpql.setParameter("intentid",Integer.getInteger(intentId));
         List<Intent> result = jpql.getResultList();
         return result;
     }
@@ -52,8 +52,8 @@ public class IntentRepositoryImpl implements IntentRepository {
     @Override
     @Transactional
     public List<Reply> findReplyByReplyId(String replyId) {
-        TypedQuery<Reply> jpql=entityManager.createNamedQuery("from Reply where messageId= :messageId",Reply.class);
-        jpql.setParameter("messageId",Integer.getInteger(replyId));
+        TypedQuery<Reply> jpql=entityManager.createQuery("from Reply where replyId =: replyid",Reply.class);
+        jpql.setParameter("replyid",Integer.getInteger(replyId));
         List<Reply> result = jpql.getResultList();
         return result;
     }
