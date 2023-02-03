@@ -8,6 +8,6 @@ public class UserMessage {
     }
 
     public void setMessage(String message) {
-        message = message;
+        this.message = message;
     }
 }
