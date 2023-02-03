@@ -23,17 +23,17 @@ public class IntentsServicesImpl implements IntentService {
     }
 
     @Override
-    public List<IntentMessage> findIntentByMessageId(String messageId) {
+    public List<IntentMessage> findIntentByMessageId(int messageId) {
         return intentRepository.findIntentByMessageId(messageId);
     }
 
     @Override
-    public List<Intent> findIntentByIntentId(String intentId) {
+    public List<Intent> findIntentByIntentId(int intentId) {
         return intentRepository.findIntentByIntentId(intentId);
     }
 
     @Override
-    public List<Reply> findReplyByReplyId(String replyId) {
+    public List<Reply> findReplyByReplyId(int replyId) {
         return intentRepository.findReplyByReplyId(replyId);
     }
 

@@ -31,15 +31,15 @@ public class Controller {
         List<Intent>  Intents=null;
         List<Reply>  replies=null;
         for(Message result :messages){
-            messagesIntents=intentService.findIntentByMessageId(String.valueOf(result.getMessageId()));
+            messagesIntents=intentService.findIntentByMessageId(result.getMessageId());
 
       }
         for(IntentMessage result :messagesIntents){
-            Intents=intentService.findIntentByIntentId(String.valueOf(result.getIntentId()));
+            Intents=intentService.findIntentByIntentId(result.getIntentId());
 
         }
         for(Intent result :Intents){
-            replies=intentService.findReplyByReplyId(String.valueOf(result.getReplyId()));
+            replies=intentService.findReplyByReplyId(result.getReplyId());
 
         }
 

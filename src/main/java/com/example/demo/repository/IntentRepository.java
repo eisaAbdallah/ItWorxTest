@@ -12,9 +12,9 @@ import java.util.List;
 public interface IntentRepository   {
 
 List<Message> findByMessage(String messageId);
-    List<IntentMessage> findIntentByMessageId(String messageId);
-    List<Intent> findIntentByIntentId(String intentId);
-    List<Reply> findReplyByReplyId(String replyId);
+    List<IntentMessage> findIntentByMessageId(int messageId);
+    List<Intent> findIntentByIntentId(int intentId);
+    List<Reply> findReplyByReplyId(int replyId);
 
     Integer getMaxResult();
 
