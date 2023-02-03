@@ -9,7 +9,7 @@ public class IntentMessage {
     @Column(name = "intetnt_message_id", nullable = false)
     private int intetntMessageId;
     @Column(name = "message_id", nullable = false)
-    private int MessageId;
+    private int messageId;
     @Column(name = "intent_id", nullable = false)
     private int intentId;
     @Column(name = "confidence", nullable = false)
@@ -23,11 +23,11 @@ public class IntentMessage {
     }
 
     public int getMessageId() {
-        return MessageId;
+        return messageId;
     }
 
     public void setMessageId(int messageId) {
-        MessageId = messageId;
+        this.messageId = messageId;
     }
 
     public int getIntentId() {
