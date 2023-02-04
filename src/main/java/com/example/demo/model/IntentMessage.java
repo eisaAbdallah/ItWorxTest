@@ -13,7 +13,7 @@ public class IntentMessage {
     @Column(name = "intent_id", nullable = false)
     private int intentId;
     @Column(name = "confidence", nullable = false)
-    private int confidence;
+    private float confidence;
     public int getIntetntMessageId() {
         return intetntMessageId;
     }
@@ -38,11 +38,19 @@ public class IntentMessage {
         this.intentId = intentId;
     }
 
-    public int getConfidence() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public float getConfidence() {
         return confidence;
     }
 
-    public void setConfidence(int confidence) {
+    public void setConfidence(float confidence) {
         this.confidence = confidence;
     }
 }
