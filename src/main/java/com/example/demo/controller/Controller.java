@@ -46,7 +46,7 @@ public class Controller {
         for(IntentsModel result :intentCollection){
             float maxResult=intentService.getMaxResult();
 
-           if(result.getConfidence()==maxResult){
+           if(result.getConfidence()==messagesIntents.get(0).getConfidence()){
 
                return replies;
            }

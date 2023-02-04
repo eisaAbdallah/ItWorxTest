@@ -5,9 +5,7 @@ import com.example.demo.model.IntentMessage;
 import com.example.demo.model.Message;
 import com.example.demo.model.Reply;
 import com.example.demo.repository.IntentRepository;
-import com.example.demo.repository.MaxResultConfidence;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -18,14 +16,12 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 @Repository
 public class IntentRepositoryImpl implements IntentRepository {
     @Autowired
     EntityManager entityManager;
-    @Autowired
-    MaxResultConfidence maxResultConfidence;
+
     @Autowired
     JdbcTemplate jdbcTemplate;
 
@@ -47,7 +43,7 @@ public class IntentRepositoryImpl implements IntentRepository {
             public IntentMessage mapRow(ResultSet rs, int rownumber) throws SQLException {
                 IntentMessage e=new IntentMessage();
                 e.setIntentId(rs.getInt("intent_id"));
-
+                e.setConfidence(rs.getFloat("confidence"));
                 return e;
             }
         },messageId);
@@ -75,9 +71,8 @@ public class IntentRepositoryImpl implements IntentRepository {
     }
 
     @Override
-    @Transactional
     public float getMaxResult() {
-        return maxResultConfidence.getMaxResult();
+        return this.jdbcTemplate.queryForObject("SELECT   MAX(confidence) AS max  FROM Intent_Message",float.class);
     }
 
 
